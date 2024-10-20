@@ -25,7 +25,7 @@ function Usepassword() {
     let parts = value.split(`; token=`);
     let token = parts.pop().split(";").shift();
     let res = await fetch(
-      `http://localhost:5000/api/v1/getsinglepassword?token=${token}&passwordID=${id}`,
+      `https://suraj-web-locker-backend.vercel.app/api/v1/getsinglepassword?token=${token}&passwordID=${id}`,
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },
@@ -44,7 +44,7 @@ function Usepassword() {
     let parts = value.split(`; token=`);
     let token = parts.pop().split(";").shift();
     let res = await fetch(
-      `http://localhost:5000/api/v1/deletepassword?token=${token}&passwordID=${id}`,
+      `https://suraj-web-locker-backend.vercel.app/api/v1/deletepassword?token=${token}&passwordID=${id}`,
       {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
@@ -77,11 +77,14 @@ function Usepassword() {
         password: inp3Ref.current.value,
         token: token,
       };
-      let res = await fetch("http://localhost:5000/api/v1/updatepassword", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(inpobj),
-      });
+      let res = await fetch(
+        "https://suraj-web-locker-backend.vercel.app/api/v1/updatepassword",
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(inpobj),
+        }
+      );
       let response = await res.text();
       if (response == "false") alert(`error in updating data`);
       else {

@@ -16,11 +16,14 @@ function Login() {
       username: data.username,
       password: data.password,
     };
-    let check = await fetch("http://localhost:5000/api/v1/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(obj),
-    });
+    let check = await fetch(
+      "https://suraj-web-locker-backend.vercel.app/api/v1/login",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(obj),
+      }
+    );
     let res = await check.json();
     if (res.stat == "1") setError("username", { message: res.message });
     else if (res.stat == "2") setError("username", { message: res.message });

@@ -24,11 +24,14 @@ function Contact() {
         phonenumber: inp4Ref.current.value,
         help: inp5Ref.current.value,
       };
-      let res = await fetch("http://localhost:5000/api/v1/feedback", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(inpobj),
-      });
+      let res = await fetch(
+        "https://suraj-web-locker-backend.vercel.app/api/v1/feedback",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(inpobj),
+        }
+      );
       let response = await res.text();
       inp1Ref.current.value = "";
       inp2Ref.current.value = "";

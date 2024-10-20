@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }) => {
       const token = parts.pop().split(";").shift();
       const verifyToken = async () => {
         const response = await fetch(
-          `http://localhost:5000/api/v1/checktoken?token=${token}`,
+          `https://suraj-web-locker-backend.vercel.app/api/v1/checktoken?token=${token}`,
           {
             method: "GET",
             headers: {

@@ -19,7 +19,7 @@ const VerifyEmail = () => {
     }
     try {
       const response = await fetch(
-        `http://localhost:5000/api/v1/verifyAccount?tid=${token}&uid=${userId}`,
+        `https://suraj-web-locker-backend.vercel.app/api/v1/verifyAccount?tid=${token}&uid=${userId}`,
         {
           method: "GET",
           headers: {

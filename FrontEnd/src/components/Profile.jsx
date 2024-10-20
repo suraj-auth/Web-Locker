@@ -4,11 +4,6 @@ import female from "../assets/female.png";
 import logo from "../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-/* user1 = surajmehto7
-           suraj123
-   user2 = snehabansal7
-           sneha123
-*/
 function Profile() {
   const [userg, setUserg] = useState();
   const [user, setUser] = useState({
@@ -30,7 +25,7 @@ function Profile() {
     if (parts.length === 2) {
       const token = parts.pop().split(";").shift();
       let response = await fetch(
-        `http://localhost:5000/api/v1/userprofile?token=${token}`
+        `https://suraj-web-locker-backend.vercel.app/api/v1/userprofile?token=${token}`
       );
       let res = await response.json();
       if (res.userP.gender == "male") setUserg(male);

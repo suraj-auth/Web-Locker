@@ -26,22 +26,28 @@ const Signup = () => {
     });
   };
   const onSubmit = async (data) => {
-    let check = await fetch("http://localhost:5000/api/v1/userdetails", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    let check = await fetch(
+      "https://suraj-web-locker-backend.vercel.app/api/v1/userdetails",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      }
+    );
     let checkResponse = await check.json();
     if (checkResponse.stat == "1")
       setError("username", { message: checkResponse.message });
     else if (checkResponse.stat == "2")
       setError("email", { message: checkResponse.message });
     else {
-      let res = await fetch("http://localhost:5000/api/v1/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      let res = await fetch(
+        "https://suraj-web-locker-backend.vercel.app/api/v1/signup",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
       let response = await res.text();
       reset();
       setDone(true);
