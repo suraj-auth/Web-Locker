@@ -37,7 +37,7 @@ const login = async (req, res) => {
   } catch (error) {
     res.status(500).json({
       stat:"4",
-      message:"error in login controller",
+      message:"error in login controller" + error,
     });
   }
 };
