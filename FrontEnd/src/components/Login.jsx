@@ -38,10 +38,7 @@ function Login() {
       navigate("/");
       alert("user navigated to /");
     }
-    else if (res.stat == "4"){
-      console.log("entered in the else condition");
-      console.log(res);
-    }
+    else if (res.stat == "4") console.log(res);
   };
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
