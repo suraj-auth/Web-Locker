@@ -40,6 +40,7 @@ function Login() {
     }
     else if (res.stat == "4"){
       console.log("entered in the else condition");
+      console.log(res);
     }
   };
   return (
