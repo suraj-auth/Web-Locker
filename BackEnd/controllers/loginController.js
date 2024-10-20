@@ -40,7 +40,6 @@ const login = async (req, res) => {
     res.status(500).json({
       stat:"4",
       message:"error in login controller" + error,
-      key:`your key is = ${process.env.KEY}`,
     });
   }
 };
