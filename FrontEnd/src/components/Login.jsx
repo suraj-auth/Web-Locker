@@ -29,14 +29,12 @@ function Login() {
     else if (res.stat == "2") setError("username", { message: res.message });
     else if (res.stat == "3") setError("password", { message: res.message });
     else if (res.stat == "0") {
-      console.log("entered in the 0 condition");
       const days = 7;
       const date = new Date();
       date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
       const expires = "expires=" + date.toUTCString();
       document.cookie = "token=" + res.tkn + ";" + expires + ";path=/";
       navigate("/");
-      alert("user navigated to /");
     }
     else if (res.stat == "4") console.log(res);
   };
