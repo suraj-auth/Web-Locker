@@ -22,7 +22,7 @@ export const sender = async (reader, tokenID, userID) => {
       text: "please login to verify your account",
       html: `<div>
               <h1>Click the button for Verification</h1>
-              <a href="http://localhost:5173/verify?token=${tokenID}&userId=${userID}">click me</a>
+              <a href="https://suraj-web-locker.vercel.app/verify?token=${tokenID}&userId=${userID}">click me</a>
             </div>`,
     };
     // Sending Email
