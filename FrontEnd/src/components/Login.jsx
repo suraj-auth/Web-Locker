@@ -35,6 +35,7 @@ function Login() {
       const expires = "expires=" + date.toUTCString();
       document.cookie = "token=" + res.tkn + ";" + expires + ";path=/";
       navigate("/");
+      alert("user navigated to /");
     }
   };
   return (
