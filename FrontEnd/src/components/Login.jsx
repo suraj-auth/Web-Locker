@@ -38,7 +38,7 @@ function Login() {
       navigate("/");
       alert("user navigated to /");
     }
-    else{
+    else if (res.stat == "4"){
       console.log("entered in the else condition");
     }
   };
