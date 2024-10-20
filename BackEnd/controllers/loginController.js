@@ -1,6 +1,8 @@
 import user from "../models/user.model.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
+import dotenv from "dotenv";
+dotenv.config();
 const login = async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -38,7 +40,7 @@ const login = async (req, res) => {
     res.status(500).json({
       stat:"4",
       message:"error in login controller" + error,
-      key:process.env.KEY,
+      key:`your key is = ${process.env.KEY}`,
     });
   }
 };
