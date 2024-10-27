@@ -1,5 +1,4 @@
 import Passwords from "./components/Passwords.jsx";
-import VerifyEmail from "./utils/VerifyEmail.jsx";
 import Profile from "./components/Profile.jsx";
 import Contact from "./components/Contact.jsx";
 import { createRoot } from "react-dom/client";
@@ -25,7 +24,6 @@ const router = createBrowserRouter(
       <Route path="signup" element={<Signup />} />
       <Route path="login" element={<Login />} />
       <Route path="users" element={<User />} />
-      <Route path="verify" element={<VerifyEmail />} />
       <Route path="/" element={<Layout />}>
         <Route path="" element={<Home />} />
         <Route path="home" element={<Home />} />
