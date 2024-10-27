@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 const PrivateRoute = ({ children }) => {
+  // setted isauthenticated as null , so until fetch call is completed i can show the user a loading page.
   const [isAuthenticated, setIsAuthenticated] = useState(null);
   useEffect(() => {
+    // taking token from the browser cookies
     const value = `; ${document.cookie}`;
     const parts = value.split(`; token=`);
     if (parts.length === 2) {
@@ -18,6 +20,8 @@ const PrivateRoute = ({ children }) => {
           }
         );
         const data = await response.json();
+        // if user token is valid then isauthenticated is set to true and page will show .
+        // else isauthenticated is set to false and user will be directed to login page.
         setIsAuthenticated(data.valid);
       };
       verifyToken();
