@@ -5,6 +5,7 @@ import { signup } from "../controllers/signupController.js";
 import { userprofile } from "../controllers/userprofile.js";
 import { login } from "../controllers/loginController.js";
 import { checktkn } from "../controllers/checktkn.js";
+import { deleteuser } from "../controllers/deleteuserController.js";
 import {
   addpassword,
   updatepassword,
@@ -27,6 +28,8 @@ router.route("/addpassword").post(addpassword);
 router.route("/updatepassword").put(updatepassword);
 router.route("/getallpassword").get(getAllpassword);
 router.route("/deletepassword").delete(deletepassword);
+router.route("/deleteuser").delete(deleteuser);
 router.route("/getsinglepassword").get(getSinglepassword);
 
 export default router;
+
