@@ -2,7 +2,7 @@ import nodemailer from "nodemailer";
 // reader is the users email
 // tokenID is the verification token stored in the database
 // userID is the users mongodb id
-export const sender = async (reader, tokenID, userID) => {
+export const sender = async (reader, tokenID) => {
   try {
     // Creating the Sender of Email
     const auth = nodemailer.createTransport({
@@ -18,11 +18,12 @@ export const sender = async (reader, tokenID, userID) => {
     const reciever = {
       from: process.env.GMAIL,
       to: reader,
-      subject: "Weblocker Verification",
-      text: "please login to verify your account",
+      subject: "Weblocker Verification OTP",
+      text: "This is your Email Verification OTP for Login to Web-Locker . This OTP is Valid only for 1 Hour.",
       html: `<div>
-              <h1>Click the button for Verification</h1>
-              <a href="https://suraj-web-locker.vercel.app/verify?token=${tokenID}&userId=${userID}">click me</a>
+              <h1> Web-Locker Verification Code.</h1>
+              <p> Only Valid for 1 Hour.</p>
+              <h1>OTP :${tokenID} </h1>
             </div>`,
     };
     // Sending Email
@@ -34,3 +35,4 @@ export const sender = async (reader, tokenID, userID) => {
     return false;
   }
 };
+
